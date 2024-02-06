@@ -20,7 +20,6 @@ def _search(csv_path):
     option = int(input('Select 1 for city name and 2 for postal code: '))
     if option == 1:
         response, radius = _input(option)
-        print(radius)
         result = _search_by_city(csv_path, response, radius)
         print(result)
     elif option == 2:
@@ -37,6 +36,8 @@ def _search_by_city(csv_path, key, radius):
     if radius <= 0:
         logger.warning('Incorrect radius, entry a positive radius')
         return 'Radius error'
+    
+    df['city'] = df['city'].apply(lambda string: string.lower())
     
     if df['city'].isin([key]).any():
         lat = df[df['city'] == key]['latitude']
@@ -91,8 +92,10 @@ def _calculate_near(key_lat, key_lon, df_lat, df_lon):
     return r*c
 
 def _input(option):
+    string = ''
     if option == 1:
         string = input('Enter the city name: ')
+        string = string.lower()
     elif option == 2:
         string = input('Enter the postal code: ')
     
