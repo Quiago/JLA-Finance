@@ -25,5 +25,10 @@ This app is in charge of doing web scraping to obtain all the cities, their zip 
 
 #You can modify the css selector for scraping if you modify the config.yaml file
 
+#The app have 3 modules:
+Extract: To extract the cities, therir postcode and geographic coordinates
+Transform: To clean the extracted data
+Load: To run the search function by city name or zip code
+
 #Thanks!
 
