@@ -1,0 +1,6 @@
+web_sites:
+  cities:
+    queries:
+      city_element: 
+        tags: 'dd a'
+        attrs: '/wiki/Postleitzahl_(Deutschland)'
