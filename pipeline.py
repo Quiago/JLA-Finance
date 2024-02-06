@@ -20,6 +20,7 @@ def _transform():
 
 def _load():
     subprocess.run(['python3', 'main.py'], cwd='./load')
+    logger.info('Process finished!')
 
 if __name__ == '__main__':
     main()
